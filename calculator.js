@@ -184,13 +184,12 @@ import _, {divide, multiply} from "lodash";
 const operation = process.argv[2];
 const numbers = process.argv.slice(3);
 
+// ToDo 3
 if (!isValidOperation(operation)) {
     console.log("Invalid operation. Use: add, subtract, multiply, or divide");
     return;
 }
 
-
-// ToDo 3
 const nums = parseNumbers(numbers);
 let result;
 
@@ -207,6 +206,9 @@ switch (operation) {
     case "divide":
         result = divide(nums);
         break;
+    default:
+        console.log("Invalid operation. Use: add, subtract, multiply, or divide");
+        return;
 }
 
 console.log(`Result: ${result}`);
@@ -233,6 +235,18 @@ export function divide(numbers) {
         }
         return result / num;
     });
+}
+
+// ToDo 5
+
+export function parseNumbers(input) {
+    const numbers = _.map(input, (str) => Number(str));
+    return _.compact(numbers);
+}
+
+export function isValidOperation(operation) {
+    const validOps = ["add", "subtract", "multiply", "divide"];
+    return _.includes(validOps, operation);
 }
 
 
