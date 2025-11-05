@@ -176,9 +176,9 @@ After completing all TODOs, test your calculator:
 */
 
 // ToDo 1
-import { add, subtract } from "./utils/operations.js";
+import { add, subtract, multiply, divide } from "./utils/operations.js";
 import { parseNumbers, isValidOperation } from "./utils/parser.js";
-import _, {divide, multiply} from "lodash";
+import _ from "lodash";
 
 // ToDo 2
 const operation = process.argv[2];
@@ -207,23 +207,9 @@ switch (operation) {
         break;
     default:
         console.log("Invalid operation. Use: add, subtract, multiply, or divide");
-        return;
 }
 
 console.log(`Result: ${result}`);
-
-
-// ToDo 5
-
-export function parseNumbers(input) {
-    const numbers = _.map(input, (str) => Number(str));
-    return _.compact(numbers);
-}
-
-export function isValidOperation(operation) {
-    const validOps = ["add", "subtract", "multiply", "divide"];
-    return _.includes(validOps, operation);
-}
 }
 
 
