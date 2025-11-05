@@ -187,8 +187,7 @@ const numbers = process.argv.slice(3);
 // ToDo 3
 if (!isValidOperation(operation)) {
     console.log("Invalid operation. Use: add, subtract, multiply, or divide");
-    return;
-}
+} else {
 
 const nums = parseNumbers(numbers);
 let result;
@@ -213,29 +212,6 @@ switch (operation) {
 
 console.log(`Result: ${result}`);
 
-// ToDo 4
-
-export function add(numbers) {
-    return numbers.reduce((sum, num) => sum + num, 0);
-}
-
-export function subtract(numbers) {
-    return numbers.reduce((result, num) => result - num, numbers[0]);
-}
-
-export function multiply(numbers) {
-    return numbers.reduce((product, num) => product * num, 1);
-}
-
-export function divide(numbers) {
-    return numbers.reduce((result, num) => {
-        if (num === 0) {
-            console.log("Error: Division by zero");
-            return NaN;
-        }
-        return result / num;
-    });
-}
 
 // ToDo 5
 
@@ -247,6 +223,7 @@ export function parseNumbers(input) {
 export function isValidOperation(operation) {
     const validOps = ["add", "subtract", "multiply", "divide"];
     return _.includes(validOps, operation);
+}
 }
 
 
